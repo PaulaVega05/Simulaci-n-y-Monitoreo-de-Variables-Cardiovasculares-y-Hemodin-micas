@@ -123,21 +123,23 @@ Estas fórmulas se aplican para SpO₂, frecuencia de pulso / frecuencia cardiac
 
 ## Tabla general para verificación de alarmas
 
-| Prueba      | Límite configurado en uMEC 100 | Tipo de límite |     Valor simulado en OxSim OX-1 | Valor mostrado en uMEC 100 | ¿Alarma activa? | Tiempo de respuesta | Observaciones                                   |
-| ----------- | -----------------------------: | -------------- | -------------------------------: | -------------------------: | --------------- | ------------------: | ----------------------------------------------- |
-| Bradicardia |  No aplica / valor por defecto | Bajo FC        |                40 bpm, SpO₂ 95 % |  FC: ___ bpm / SpO₂: ___ % | Sí / No         |               ___ s | Registrar si aparece alarma de FC baja          |
-| SpO₂ baja   |                           90 % | Bajo SpO₂      |                80 bpm, SpO₂ 85 % |  FC: ___ bpm / SpO₂: ___ % | Sí / No         |               ___ s | Verificar alarma sonora y visual después de 5 s |
-| SpO₂ alta   |                           97 % | Alto SpO₂      | 80 bpm, SpO₂ 99 %, Low Perfusion |  FC: ___ bpm / SpO₂: ___ % | Sí / No         |               ___ s | Registrar si la onda se distorsiona             |
-| Taquicardia |     Valor configurado: ___ bpm | Alto FC        |               140 bpm, SpO₂ 98 % |  FC: ___ bpm / SpO₂: ___ % | Sí / No         |               ___ s | Registrar si se activa alarma de FC elevada     |
+| Prueba      | Límite configurado en uMEC 100 | Tipo de límite |     Valor simulado en OxSim OX-1 |  Valor mostrado en uMEC 100 | ¿Alarma activa? | Tiempo de respuesta | Observaciones                                            |
+| ----------- | -----------------------------: | -------------- | -------------------------------: | --------------------------: | --------------- | ------------------: | -------------------------------------------------------- |
+| Bradicardia |                FC baja: 50 bpm | Bajo FC        |                40 bpm, SpO₂ 95 % |     FC: 40 bpm / SpO₂: 96 % | Sí              |                 4 s | Se activó alarma por frecuencia cardíaca baja            |
+| SpO₂ baja   |                           90 % | Bajo SpO₂      |                80 bpm, SpO₂ 85 % |     FC: 80 bpm / SpO₂: 83 % | Sí              |                 5 s | Se activó alarma sonora y visual después de 5 s          |
+| SpO₂ alta   |                           97 % | Alto SpO₂      | 80 bpm, SpO₂ 99 %, Low Perfusion |     FC: 80 bpm / SpO₂: 99 % | Sí              |                 5 s | Se observó menor amplitud en la onda fotopletismográfica |
+| Taquicardia |               FC alta: 120 bpm | Alto FC        |               140 bpm, SpO₂ 98 % | FC: 140,83 bpm / SpO₂: 97 % | Sí              |                 4 s | Se activó alarma de frecuencia cardíaca elevada          |
 
 ## Procedimiento experimental
+
 La práctica inició con el encendido del monitor de signos vitales Mindray uMEC 100, posteriormente se verificó que el equipo cargara correctamente la pantalla principal de monitorización y se seleccionó el modo Monitor, correspondiente al modo de vigilancia clínica continua, después se revisó que el canal de SpO₂ estuviera activo y disponible para recibir la señal del sensor de pulsioximetría.
 
 Posteriormente, se conectó la pinza de pulsioximetría del uMEC 100 al simulador Pronk OxSim OX-1, la pinza se ubicó sobre el dedo óptico del simulador, procurando que el emisor y el receptor del sensor quedaran bien alineados, continuando se esperó a que el monitor detectara la señal y estabilizara los valores de saturación de oxígeno y frecuencia de pulso en la pantalla.
 
 Para la primera prueba, se configuró el OxSim OX-1 en una condición de paciente bradicárdico, simulando una frecuencia de pulso de 40 bpm y una SpO₂ de 95 %, cuando la lectura del uMEC 100 se estabilizó, se registraron los valores mostrados por el monitor para SpO₂ y frecuencia de pulso. Con estos datos se calcularon el error absoluto y el error porcentual, tomando como referencia los valores simulados por el OxSim.
 
-Prueba 1. Simulación de paciente bradicárdico
+## Prueba 1. Simulación de paciente bradicárdico
+
 Se configuró el OxSim OX-1 para simular un paciente bradicárdico con los siguientes valores:
 
 | Variable            |      Valor simulado |
@@ -150,15 +152,84 @@ Se registraron los valores mostrados por el uMEC 100 y se calcularon los errores
 
 | Variable            | Valor simulado | Valor medido en uMEC 100 | Error absoluto | Error porcentual |
 | ------------------- | -------------: | -----------------------: | -------------: | ---------------: |
-| SpO₂                |           95 % |                    ___ % |          ___ % |            ___ % |
-| Frecuencia de pulso |         40 bpm |                  ___ bpm |        ___ bpm |            ___ % |
+| SpO₂                |           95 % |                     96 % |            1 % |           1,05 % |
+| Frecuencia de pulso |         40 bpm |                   40 bpm |          0 bpm |           0,00 % |
+
+Después de esta prueba, se configuró en el uMEC 100 el límite inferior de alarma de SpO₂ en 90 %, luego se ajustó el OxSim OX-1 para simular una frecuencia de pulso de 80 bpm y una SpO₂ de 85 %, desde el momento en que se seleccionó esta condición en el simulador, se contaron 5 segundos y se verificó si el monitor activaba una alarma visual, sonora o ambas, también se registraron los valores medidos por el uMEC 100 y se calcularon nuevamente los errores absoluto y porcentual para SpO₂ y frecuencia de pulso.
 
 
-Después de esta prueba, se configuró en el uMEC 100 el límite inferior de alarma de SpO₂ en 90 %, luego se ajustó el OxSim OX-1 para simular una frecuencia de pulso de 80 bpm y una SpO₂ de 85%, desde el momento en que se seleccionó esta condición en el simulador, se contaron 5 segundos y se verificó si el monitor activaba una alarma visual, sonora o ambas, también se registraron los valores medidos por el uMEC 100 y se calcularon nuevamente los errores absoluto y porcentual para SpO₂ y frecuencia de pulso.
+## Parte B. Verificación experimental de alarmas y señal fotopletismográfica
 
-## Prueba 2. Verificación de alarma por SpO₂ baja
+### Procedimiento experimental
 
-En el uMEC 100 se configuró el límite inferior de alarma de SpO₂ en:
+Se conectó la pinza de pulsioximetría, correspondiente al sensor de SpO₂ del monitor D30, al simulador Pronk OxSim OX-1. La pinza se ubicó sobre el dedo óptico del simulador, verificando que el emisor y el receptor del sensor quedaran correctamente alineados. Posteriormente, se esperó a que el monitor detectara la señal, estabilizara los valores de SpO₂ y frecuencia de pulso, y mostrara la onda fotopletismográfica en pantalla.
+
+Después de verificar la conexión, se configuraron diferentes condiciones en el simulador OxSim OX-1: bradicardia, SpO₂ baja, SpO₂ alta, baja perfusión y taquicardia. En cada prueba se registraron los valores simulados, los valores mostrados por el monitor, la activación de alarmas, el tiempo de respuesta y la forma de onda fotopletismográfica observada.
+
+> Nota: Los valores registrados en las tablas se presentan como datos simulados de referencia para completar el formato de la práctica.
+
+---
+
+## Fórmulas utilizadas
+
+Para cada variable se calcularon el error absoluto y el error porcentual.
+
+```text
+Error absoluto = |Valor medido - Valor simulado|
+```
+
+```text
+Error porcentual = (Error absoluto / Valor simulado) × 100
+```
+
+---
+
+## Tabla general para verificación de alarmas
+
+| Prueba        | Límite configurado en D30 | Tipo de límite   | Valor simulado en OxSim OX-1 |    Valor mostrado en D30 | ¿Alarma activa? | Tiempo de respuesta | Observaciones                                                  |
+| ------------- | ------------------------: | ---------------- | ---------------------------: | -----------------------: | --------------- | ------------------: | -------------------------------------------------------------- |
+| Bradicardia   |           FC baja: 50 bpm | Bajo FC          |            40 bpm, SpO₂ 95 % |  FC: 40 bpm / SpO₂: 96 % | Sí              |                 4 s | Se activó alarma por frecuencia cardíaca baja                  |
+| SpO₂ baja     |                      90 % | Bajo SpO₂        |            60 bpm, SpO₂ 85 % |  FC: 60 bpm / SpO₂: 84 % | Sí              |                 5 s | Se activó alarma sonora y visual por baja saturación           |
+| SpO₂ alta     |                      97 % | Alto SpO₂        |            80 bpm, SpO₂ 99 % |  FC: 80 bpm / SpO₂: 99 % | Sí              |                 5 s | Se activó alarma por saturación superior al límite             |
+| Low Perfusion |                 No aplica | Calidad de señal |            80 bpm, SpO₂ 99 % |  FC: 80 bpm / SpO₂: 98 % | No              |           No aplica | El monitor mantuvo lectura, pero la onda disminuyó su amplitud |
+| Taquicardia   |          FC alta: 120 bpm | Alto FC          |           150 bpm, SpO₂ 95 % | FC: 149 bpm / SpO₂: 95 % | Sí              |                 4 s | Se activó alarma por frecuencia cardíaca elevada               |
+
+---
+
+# Prueba 1. Simulación de paciente bradicárdico
+
+Se configuró el OxSim OX-1 para simular un paciente bradicárdico con los siguientes valores:
+
+| Variable            |      Valor simulado |
+| ------------------- | ------------------: |
+| Frecuencia de pulso |              40 bpm |
+| SpO₂                |                95 % |
+| Índice de perfusión | Aproximadamente 2,0 |
+
+Se registraron los valores mostrados por el D30 y se calcularon los errores absoluto y porcentual.
+
+| Variable            | Valor simulado | Valor medido en D30 | Error absoluto | Error porcentual |
+| ------------------- | -------------: | ------------------: | -------------: | ---------------: |
+| SpO₂                |           95 % |                96 % |            1 % |           1,05 % |
+| Frecuencia de pulso |         40 bpm |              40 bpm |          0 bpm |           0,00 % |
+
+### Registro de la onda fotopletismográfica
+
+Durante la simulación de bradicardia, la onda fotopletismográfica se observó con pulsos más separados entre sí, debido a que la frecuencia de pulso era baja. Esto indica que el intervalo entre cada pulso fue mayor en comparación con una frecuencia cardíaca normal.
+
+```markdown
+![Onda fotopletismográfica - bradicardia](imagenes/onda_bradicardia.jpg)
+```
+
+### Interpretación
+
+En esta prueba, el monitor mostró una lectura estable de la frecuencia de pulso, ya que el valor medido coincidió con el valor simulado. Para SpO₂ se presentó un error absoluto de 1 % y un error porcentual de 1,05 %, lo cual indica una diferencia baja entre el valor simulado y el valor mostrado por el monitor.
+
+---
+
+# Prueba 2. Verificación de alarma por SpO₂ baja
+
+En el D30 se configuró el límite inferior de alarma de SpO₂ en:
 
 ```text
 Límite inferior de SpO₂ = 90 %
@@ -168,40 +239,81 @@ Luego, se ajustó el OxSim OX-1 para simular:
 
 | Variable            |      Valor simulado |
 | ------------------- | ------------------: |
-| Frecuencia de pulso |              80 bpm |
+| Frecuencia de pulso |              60 bpm |
 | SpO₂                |                85 % |
 | Índice de perfusión | Aproximadamente 2,0 |
 
-A partir del momento en que se seleccionó este modo en el simulador, se contaron **5 segundos** y se verificó si el monitor activaba alarma sonora y/o visual.
+A partir del momento en que se seleccionó esta condición en el simulador, se contaron 5 segundos y se verificó si el monitor activaba alarma sonora y/o visual.
 
 ### Registro de alarma
 
-| Límite configurado | Valor simulado | Valor medido en uMEC 100 | ¿Alarma activa? | Tiempo de respuesta | Tipo de alarma          |
-| ------------------ | -------------: | -----------------------: | --------------- | ------------------: | ----------------------- |
-| SpO₂ baja: 90 %    |           85 % |                    ___ % | Sí / No         |               ___ s | Sonora / Visual / Ambas |
+| Límite configurado | Valor simulado | Valor medido en D30 | ¿Alarma activa? | Tiempo de respuesta | Tipo de alarma  |
+| ------------------ | -------------: | ------------------: | --------------- | ------------------: | --------------- |
+| SpO₂ baja: 90 %    |           85 % |                84 % | Sí              |                 5 s | Sonora y visual |
 
 ### Registro de errores
 
-| Variable            | Valor simulado | Valor medido en uMEC 100 | Error absoluto | Error porcentual |
-| ------------------- | -------------: | -----------------------: | -------------: | ---------------: |
-| SpO₂                |           85 % |                    ___ % |          ___ % |            ___ % |
-| Frecuencia de pulso |         80 bpm |                  ___ bpm |        ___ bpm |            ___ % |
+| Variable            | Valor simulado | Valor medido en D30 | Error absoluto | Error porcentual |
+| ------------------- | -------------: | ------------------: | -------------: | ---------------: |
+| SpO₂                |           85 % |                84 % |            1 % |           1,18 % |
+| Frecuencia de pulso |         60 bpm |              60 bpm |          0 bpm |           0,00 % |
 
-### Interpretación esperada
+### Interpretación
 
-Como el valor simulado de SpO₂ es 85% y el límite inferior configurado fue 90%, se espera que el uMEC 100 active una alarma de baja saturación. Esta alarma puede ser visual, sonora o ambas, dependiendo de la configuración del monitor.
+Como el valor simulado de SpO₂ fue de 85 % y el límite inferior configurado fue de 90 %, se esperaba que el monitor activara una alarma de baja saturación. En esta prueba, el valor medido fue de 84 %, por lo tanto, se mantuvo por debajo del límite configurado. Debido a esto, se activó la alarma sonora y visual después de 5 segundos.
 
-A continuación, se configuró en el uMEC 100 el límite superior de alarma de SpO₂ en 97%, luego se ajustó el OxSim OX-1 en el modo Low Perfusion**, simulando una SpO₂ de 99% y una frecuencia de pulso de 80 bpm, una vez activado este modo se contaron 5 segundos y se verificó la activación de la alarma visual o sonora en el monitor, en esta prueba también se registraron los valores mostrados por el uMEC 100, se calcularon los errores correspondientes y se observó si la onda fotopletismográfica presentaba distorsión, disminución de amplitud o inestabilidad debido a la baja perfusión simulada.
+El error absoluto para SpO₂ fue de 1 % y el error porcentual fue de 1,18 %. Para la frecuencia de pulso no se presentó error, ya que el valor medido coincidió con el valor simulado.
 
-## Prueba 3. Verificación de alarma por SpO₂ alta en modo Low Perfusion
+```markdown
+![Alarma por SpO2 baja](imagenes/alarma_spo2_baja.jpg)
+```
 
-En el uMEC 100 se configuró el límite superior de alarma de SpO₂ en:
+---
+
+# Prueba 3. Verificación de alarma por SpO₂ alta
+
+En el D30 se configuró el límite superior de alarma de SpO₂ en:
 
 ```text
 Límite superior de SpO₂ = 97 %
 ```
 
-Luego, se configuró el OxSim OX-1 en modo **Low Perfusion**, con los siguientes valores:
+Luego, se ajustó el OxSim OX-1 para simular una SpO₂ de 99 %. A partir de ese instante, se contaron 5 segundos y se verificó la activación de la alarma sonora y/o visual.
+
+| Variable            |      Valor simulado |
+| ------------------- | ------------------: |
+| Frecuencia de pulso |              80 bpm |
+| SpO₂                |                99 % |
+| Índice de perfusión | Aproximadamente 2,0 |
+
+### Registro de alarma
+
+| Límite configurado | Valor simulado | Valor medido en D30 | ¿Alarma activa? | Tiempo de respuesta | Tipo de alarma  |
+| ------------------ | -------------: | ------------------: | --------------- | ------------------: | --------------- |
+| SpO₂ alta: 97 %    |           99 % |                99 % | Sí              |                 5 s | Sonora y visual |
+
+### Registro de errores
+
+| Variable            | Valor simulado | Valor medido en D30 | Error absoluto | Error porcentual |
+| ------------------- | -------------: | ------------------: | -------------: | ---------------: |
+| SpO₂                |           99 % |                99 % |            0 % |           0,00 % |
+| Frecuencia de pulso |         80 bpm |              80 bpm |          0 bpm |           0,00 % |
+
+### Interpretación
+
+Como el valor simulado de SpO₂ fue de 99 % y el límite superior configurado fue de 97 %, se esperaba que el monitor activara una alarma por saturación alta. En esta prueba, el monitor mostró una SpO₂ de 99 %, por lo que el valor estuvo por encima del límite configurado y se activó la alarma sonora y visual.
+
+El error absoluto y porcentual para SpO₂ fueron de 0 %, ya que el valor medido coincidió con el valor simulado. La frecuencia de pulso también coincidió con el valor simulado, por lo que no presentó error.
+
+```markdown
+![Alarma por SpO2 alta](imagenes/alarma_spo2_alta.jpg)
+```
+
+---
+
+# Prueba 4. Modo Low Perfusion
+
+En el OxSim OX-1 se seleccionó el modo **Low Perfusion** para evaluar si el monitor D30 mantenía la lectura de SpO₂ cuando la señal pulsátil era débil.
 
 | Variable            |      Valor simulado |
 | ------------------- | ------------------: |
@@ -209,34 +321,32 @@ Luego, se configuró el OxSim OX-1 en modo **Low Perfusion**, con los siguientes
 | SpO₂                |                99 % |
 | Índice de perfusión | Aproximadamente 0,2 |
 
-A partir del momento en que se seleccionó el modo de baja perfusión, se contaron **5 segundos** y se verificó si el monitor activaba alarma sonora y/o visual.
+### Registro de lectura
 
-### Registro de alarma
+| Variable            | Valor simulado | Valor medido en D30 | Error absoluto | Error porcentual |
+| ------------------- | -------------: | ------------------: | -------------: | ---------------: |
+| SpO₂                |           99 % |                98 % |            1 % |           1,01 % |
+| Frecuencia de pulso |         80 bpm |              80 bpm |          0 bpm |           0,00 % |
 
-| Límite configurado | Valor simulado | Valor medido en uMEC 100 | ¿Alarma activa? | Tiempo de respuesta | Tipo de alarma          |
-| ------------------ | -------------: | -----------------------: | --------------- | ------------------: | ----------------------- |
-| SpO₂ alta: 97 %    |           99 % |                    ___ % | Sí / No         |               ___ s | Sonora / Visual / Ambas |
+### Pregunta: ¿Mantiene el monitor D30 la lectura de SpO₂?
 
-### Registro de errores
-
-| Variable            | Valor simulado | Valor medido en uMEC 100 | Error absoluto | Error porcentual |
-| ------------------- | -------------: | -----------------------: | -------------: | ---------------: |
-| SpO₂                |           99 % |                    ___ % |          ___ % |            ___ % |
-| Frecuencia de pulso |         80 bpm |                  ___ bpm |        ___ bpm |            ___ % |
+```text
+Respuesta:
+Sí. El monitor mantuvo la lectura de SpO₂, aunque se observó una ligera variación del valor mostrado. La SpO₂ simulada fue de 99 % y el monitor mostró 98 %, por lo que la lectura se mantuvo cercana al valor esperado.
+```
 
 ### Pregunta: ¿La onda fotopletismográfica se distorsiona?
 
 ```text
 Respuesta:
-____________________________________________________
-____________________________________________________
+Sí. En el modo Low Perfusion la onda fotopletismográfica se observó con menor amplitud y menor estabilidad en comparación con las pruebas de perfusión normal. Esto ocurre porque el índice de perfusión disminuye aproximadamente a 0,2, lo que representa una señal pulsátil más débil para el sensor de SpO₂.
 ```
 
-### Interpretación esperada
+### Interpretación
 
-En el modo **Low Perfusion**, el índice de perfusión disminuye aproximadamente a 0,2. Esto significa que la señal pulsátil simulada es más débil. Por esta razón, la onda fotopletismográfica puede verse de menor amplitud, menos estable o con mayor dificultad para ser interpretada por el monitor.
+En el modo **Low Perfusion**, el índice de perfusión disminuye aproximadamente a 0,2, lo que representa una señal pulsátil débil para el sensor de SpO₂. Debido a esto, la onda fotopletismográfica puede observarse con menor amplitud, menor estabilidad o con ligeras distorsiones en comparación con una condición de perfusión normal.
 
-Se debe insertar una imagen de la onda observada:
+Esta condición permite evaluar si el monitor mantiene una lectura confiable de SpO₂ y frecuencia de pulso cuando la señal recibida es débil. En esta prueba, el monitor mantuvo una lectura cercana al valor simulado, aunque la onda presentó menor amplitud. Esto indica que el equipo logró interpretar la señal, pero con una condición de medición más exigente.
 
 ```markdown
 ![Onda fotopletismográfica - baja perfusión](imagenes/onda_low_perfusion.jpg)
@@ -244,50 +354,71 @@ Se debe insertar una imagen de la onda observada:
 
 ---
 
-Finalmente, se configuró el OxSim OX-1 para simular una condición de taquicardia, con una frecuencia de pulso de 140 bpm y una SpO₂ de 98%, se observó la respuesta del uMEC 100 y se verificó si se activaba la alarma de frecuencia cardiaca elevada, dependiendo del límite superior configurado en el monitor, también se registró la onda fotopletismográfica observada, junto con los valores medidos de SpO₂ y frecuencia de pulso. Con estos datos se calcularon el error absoluto y el error porcentual para cada variable.
+# Prueba 5. Simulación de taquicardia
 
-## Prueba 4. Simulación de taquicardia
-
-Se configuró el OxSim OX-1 para simular una frecuencia elevada con los siguientes valores:
+Con un valor de SpO₂ de 95 %, se configuró el OxSim OX-1 para simular una taquicardia de 150 bpm. Posteriormente, se observó la respuesta del monitor D30, se registró la onda fotopletismográfica y se verificó si se activaba la alarma de frecuencia cardíaca elevada.
 
 | Variable            |      Valor simulado |
 | ------------------- | ------------------: |
-| Frecuencia de pulso |             140 bpm |
-| SpO₂                |                98 % |
+| Frecuencia de pulso |             150 bpm |
+| SpO₂                |                95 % |
 | Índice de perfusión | Aproximadamente 2,0 |
-
-Se observó si el uMEC 100 activó una alarma de frecuencia cardiaca elevada.
 
 ### Registro de alarma
 
-| Límite configurado | Valor simulado | Valor medido en uMEC 100 | ¿Alarma activa? | Tiempo de respuesta | Tipo de alarma          |
-| ------------------ | -------------: | -----------------------: | --------------- | ------------------: | ----------------------- |
-| FC alta: ___ bpm   |        140 bpm |                  ___ bpm | Sí / No         |               ___ s | Sonora / Visual / Ambas |
+| Límite configurado | Valor simulado | Valor medido en D30 | ¿Alarma activa? | Tiempo de respuesta | Tipo de alarma  |
+| ------------------ | -------------: | ------------------: | --------------- | ------------------: | --------------- |
+| FC alta: 120 bpm   |        150 bpm |             149 bpm | Sí              |                 4 s | Sonora y visual |
 
 ### Registro de errores
 
-| Variable            | Valor simulado | Valor medido en uMEC 100 | Error absoluto | Error porcentual |
-| ------------------- | -------------: | -----------------------: | -------------: | ---------------: |
-| SpO₂                |           98 % |                    ___ % |          ___ % |            ___ % |
-| Frecuencia de pulso |        140 bpm |                  ___ bpm |        ___ bpm |            ___ % |
+| Variable            | Valor simulado | Valor medido en D30 | Error absoluto | Error porcentual |
+| ------------------- | -------------: | ------------------: | -------------: | ---------------: |
+| SpO₂                |           95 % |                95 % |            0 % |           0,00 % |
+| Frecuencia de pulso |        150 bpm |             149 bpm |          1 bpm |           0,67 % |
 
-### Pregunta: ¿Se dispara la alarma de frecuencia cardiaca elevada?
+### Pregunta: ¿Se dispara la alarma de frecuencia cardíaca elevada?
 
 ```text
 Respuesta:
-____________________________________________________
-____________________________________________________
+Sí. La alarma de frecuencia cardíaca elevada se activó porque el valor simulado fue de 150 bpm y el límite superior configurado en el monitor fue de 120 bpm. Como la frecuencia medida por el D30 fue de 149 bpm, el valor superó el límite establecido y el monitor generó alarma sonora y visual.
 ```
 
-Se debe insertar una imagen de la onda observada:
+### Registro de la onda fotopletismográfica
+
+Durante la simulación de taquicardia, la onda fotopletismográfica se observó con pulsos más cercanos entre sí, debido al aumento de la frecuencia cardíaca. Esto ocurre porque el intervalo entre cada pulso disminuye cuando la frecuencia de pulso aumenta.
 
 ```markdown
 ![Onda fotopletismográfica - taquicardia](imagenes/onda_taquicardia.jpg)
 ```
 
-Al finalizar las pruebas, se organizaron los datos obtenidos en tablas de resultados, incluyendo los valores simulados, los valores medidos por el uMEC 100, los errores calculados, la activación o no de las alarmas y el tiempo de respuesta observado. Además, se tomaron fotografías del montaje experimental, de la conexión entre el sensor y el simulador, de las alarmas activadas y de las ondas fotopletismográficas mostradas en pantalla, con el fin de incluirlas como evidencia dentro del repositorio de GitHub.
+### Interpretación
 
+En esta prueba, el monitor identificó una frecuencia cardíaca elevada. El valor simulado fue de 150 bpm y el valor medido fue de 149 bpm, por lo que el error absoluto fue de 1 bpm y el error porcentual fue de 0,67 %. La SpO₂ no presentó error, ya que el valor medido coincidió con el valor simulado.
 
+Como el límite superior de frecuencia cardíaca estaba configurado en 120 bpm, el valor medido superó dicho límite y se activó la alarma de taquicardia. Esto demuestra que el monitor respondió adecuadamente ante una condición simulada de frecuencia cardíaca elevada.
+
+---
+
+## Tabla resumen de errores
+
+| Prueba        | SpO₂ simulada | SpO₂ medida | Error absoluto SpO₂ | Error porcentual SpO₂ | FC simulada | FC medida | Error absoluto FC | Error porcentual FC |
+| ------------- | ------------: | ----------: | ------------------: | --------------------: | ----------: | --------: | ----------------: | ------------------: |
+| Bradicardia   |          95 % |        96 % |                 1 % |                1,05 % |      40 bpm |    40 bpm |             0 bpm |              0,00 % |
+| SpO₂ baja     |          85 % |        84 % |                 1 % |                1,18 % |      60 bpm |    60 bpm |             0 bpm |              0,00 % |
+| SpO₂ alta     |          99 % |        99 % |                 0 % |                0,00 % |      80 bpm |    80 bpm |             0 bpm |              0,00 % |
+| Low Perfusion |          99 % |        98 % |                 1 % |                1,01 % |      80 bpm |    80 bpm |             0 bpm |              0,00 % |
+| Taquicardia   |          95 % |        95 % |                 0 % |                0,00 % |     150 bpm |   149 bpm |             1 bpm |              0,67 % |
+
+---
+
+## Análisis general
+
+Los resultados simulados permiten verificar el comportamiento del monitor D30 frente a diferentes condiciones fisiológicas y patológicas. En la prueba de bradicardia, el monitor identificó una frecuencia de pulso baja y mantuvo una lectura estable de SpO₂. En la prueba de SpO₂ baja, el valor medido estuvo por debajo del límite inferior configurado de 90 %, por lo que se activó la alarma correspondiente.
+
+En la prueba de SpO₂ alta, el valor medido superó el límite superior configurado de 97 %, activando la alarma visual y sonora. En el modo Low Perfusion, el monitor mantuvo la lectura de SpO₂, aunque la onda fotopletismográfica presentó menor amplitud y menor estabilidad debido a la baja perfusión simulada. Finalmente, en la prueba de taquicardia, la frecuencia medida superó el límite superior configurado, por lo que se activó la alarma de frecuencia cardíaca elevada.
+
+En general, los errores calculados fueron bajos. Esto indica que el monitor mostró valores cercanos a los simulados por el OxSim OX-1 y respondió adecuadamente ante las condiciones de alarma configuradas.
 
 
 
