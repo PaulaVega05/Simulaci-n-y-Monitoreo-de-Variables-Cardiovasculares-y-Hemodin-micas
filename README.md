@@ -98,12 +98,6 @@ En este caso, el criterio de aceptación no debe basarse únicamente en un error
 
 
 
-
-
-
-
-
-
 ## Parte B. Verificación experimental de alarmas en el monitor uMEC 100 usando el Pronk OxSim OX-1
 
 ## Objetivo 
