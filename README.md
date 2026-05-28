@@ -463,6 +463,11 @@ Sin embargo, se observó que la confiabilidad de la medición depende de la cali
 
 El OxSim OX-1 es una herramienta útil para verificar el canal de oximetría de pulso y la respuesta de alarmas del monitor. No obstante, presenta limitaciones porque simula condiciones controladas y no reproduce por completo la complejidad de un paciente real, donde pueden intervenir factores como movimiento, baja temperatura periférica, mala colocación del sensor, interferencia lumínica o alteraciones fisiológicas reales.
 
+## Moraleja
+
+La principal enseñanza de este laboratorio es que un monitor de signos vitales no debe evaluarse únicamente por los valores numéricos que muestra en pantalla, sino también por la calidad de la señal, la correcta configuración de las alarmas y las condiciones en las que se realiza la medición. Aunque el simulador permite recrear escenarios como bradicardia, baja saturación, baja perfusión y taquicardia, en un paciente real pueden existir factores que afecten la lectura, como mala colocación del sensor, movimiento o baja perfusión periférica. Por eso, el ingeniero biomédico debe interpretar los resultados de forma crítica, verificando tanto la precisión del equipo como su respuesta ante situaciones de riesgo clínico.
+
+
 ### Referencias
 
 1. Pronk Technologies. *OxSim SpO₂ Simulator Operator’s Manual*. Rev. 07/18/2017. Disponible en:  
