@@ -158,43 +158,6 @@ Se registraron los valores mostrados por el uMEC 100 y se calcularon los errores
 Después de esta prueba, se configuró en el uMEC 100 el límite inferior de alarma de SpO₂ en 90 %, luego se ajustó el OxSim OX-1 para simular una frecuencia de pulso de 80 bpm y una SpO₂ de 85 %, desde el momento en que se seleccionó esta condición en el simulador, se contaron 5 segundos y se verificó si el monitor activaba una alarma visual, sonora o ambas, también se registraron los valores medidos por el uMEC 100 y se calcularon nuevamente los errores absoluto y porcentual para SpO₂ y frecuencia de pulso.
 
 
-## Parte B. Verificación experimental de alarmas y señal fotopletismográfica
-
-### Procedimiento experimental
-
-Se conectó la pinza de pulsioximetría, correspondiente al sensor de SpO₂ del monitor D30, al simulador Pronk OxSim OX-1. La pinza se ubicó sobre el dedo óptico del simulador, verificando que el emisor y el receptor del sensor quedaran correctamente alineados. Posteriormente, se esperó a que el monitor detectara la señal, estabilizara los valores de SpO₂ y frecuencia de pulso, y mostrara la onda fotopletismográfica en pantalla.
-
-Después de verificar la conexión, se configuraron diferentes condiciones en el simulador OxSim OX-1: bradicardia, SpO₂ baja, SpO₂ alta, baja perfusión y taquicardia. En cada prueba se registraron los valores simulados, los valores mostrados por el monitor, la activación de alarmas, el tiempo de respuesta y la forma de onda fotopletismográfica observada.
-
-> Nota: Los valores registrados en las tablas se presentan como datos simulados de referencia para completar el formato de la práctica.
-
----
-
-## Fórmulas utilizadas
-
-Para cada variable se calcularon el error absoluto y el error porcentual.
-
-```text
-Error absoluto = |Valor medido - Valor simulado|
-```
-
-```text
-Error porcentual = (Error absoluto / Valor simulado) × 100
-```
-
----
-
-## Tabla general para verificación de alarmas
-
-| Prueba        | Límite configurado en D30 | Tipo de límite   | Valor simulado en OxSim OX-1 |    Valor mostrado en D30 | ¿Alarma activa? | Tiempo de respuesta | Observaciones                                                  |
-| ------------- | ------------------------: | ---------------- | ---------------------------: | -----------------------: | --------------- | ------------------: | -------------------------------------------------------------- |
-| Bradicardia   |           FC baja: 50 bpm | Bajo FC          |            40 bpm, SpO₂ 95 % |  FC: 40 bpm / SpO₂: 96 % | Sí              |                 4 s | Se activó alarma por frecuencia cardíaca baja                  |
-| SpO₂ baja     |                      90 % | Bajo SpO₂        |            60 bpm, SpO₂ 85 % |  FC: 60 bpm / SpO₂: 84 % | Sí              |                 5 s | Se activó alarma sonora y visual por baja saturación           |
-| SpO₂ alta     |                      97 % | Alto SpO₂        |            80 bpm, SpO₂ 99 % |  FC: 80 bpm / SpO₂: 99 % | Sí              |                 5 s | Se activó alarma por saturación superior al límite             |
-| Low Perfusion |                 No aplica | Calidad de señal |            80 bpm, SpO₂ 99 % |  FC: 80 bpm / SpO₂: 98 % | No              |           No aplica | El monitor mantuvo lectura, pero la onda disminuyó su amplitud |
-| Taquicardia   |          FC alta: 120 bpm | Alto FC          |           150 bpm, SpO₂ 95 % | FC: 149 bpm / SpO₂: 95 % | Sí              |                 4 s | Se activó alarma por frecuencia cardíaca elevada               |
-
----
 
 # Prueba 1. Simulación de paciente bradicárdico
 
@@ -217,9 +180,8 @@ Se registraron los valores mostrados por el D30 y se calcularon los errores abso
 
 Durante la simulación de bradicardia, la onda fotopletismográfica se observó con pulsos más separados entre sí, debido a que la frecuencia de pulso era baja. Esto indica que el intervalo entre cada pulso fue mayor en comparación con una frecuencia cardíaca normal.
 
-```markdown
-![Onda fotopletismográfica - bradicardia](imagenes/onda_bradicardia.jpg)
-```
+
+[Onda fotopletismográfica - bradicardia](imagenes/onda_bradicardia.jpg)
 
 ### Interpretación
 
