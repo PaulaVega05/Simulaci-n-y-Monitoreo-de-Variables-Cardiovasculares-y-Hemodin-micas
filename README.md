@@ -138,26 +138,6 @@ Posteriormente, se conectó la pinza de pulsioximetría del uMEC 100 al simulado
 
 Para la primera prueba, se configuró el OxSim OX-1 en una condición de paciente bradicárdico, simulando una frecuencia de pulso de 40 bpm y una SpO₂ de 95 %, cuando la lectura del uMEC 100 se estabilizó, se registraron los valores mostrados por el monitor para SpO₂ y frecuencia de pulso. Con estos datos se calcularon el error absoluto y el error porcentual, tomando como referencia los valores simulados por el OxSim.
 
-## Prueba 1. Simulación de paciente bradicárdico
-
-Se configuró el OxSim OX-1 para simular un paciente bradicárdico con los siguientes valores:
-
-| Variable            |      Valor simulado |
-| ------------------- | ------------------: |
-| Frecuencia de pulso |              40 bpm |
-| SpO₂                |                95 % |
-| Índice de perfusión | Aproximadamente 2,0 |
-
-Se registraron los valores mostrados por el uMEC 100 y se calcularon los errores absoluto y porcentual.
-
-| Variable            | Valor simulado | Valor medido en uMEC 100 | Error absoluto | Error porcentual |
-| ------------------- | -------------: | -----------------------: | -------------: | ---------------: |
-| SpO₂                |           95 % |                     96 % |            1 % |           1,05 % |
-| Frecuencia de pulso |         40 bpm |                   40 bpm |          0 bpm |           0,00 % |
-
-Después de esta prueba, se configuró en el uMEC 100 el límite inferior de alarma de SpO₂ en 90 %, luego se ajustó el OxSim OX-1 para simular una frecuencia de pulso de 80 bpm y una SpO₂ de 85 %, desde el momento en que se seleccionó esta condición en el simulador, se contaron 5 segundos y se verificó si el monitor activaba una alarma visual, sonora o ambas, también se registraron los valores medidos por el uMEC 100 y se calcularon nuevamente los errores absoluto y porcentual para SpO₂ y frecuencia de pulso.
-
-
 
 # Prueba 1. Simulación de paciente bradicárdico
 
@@ -388,32 +368,70 @@ En general, los errores calculados fueron bajos. Esto indica que el monitor most
 
 ## Procedimiento seguido
 
-La práctica inició con la revisión técnica del monitor **Mindray uMEC 100** y del simulador **Pronk OxSim OX-1**, con el fin de identificar los parámetros que podían evaluarse durante la verificación experimental. Posteriormente, se encendió el monitor uMEC 100 y se configuró en modo Monitor para realizar la adquisición de señales fisiológicas.
+La práctica inició con la revisión técnica del monitor de signos vitales y del simulador **Pronk OxSim OX-1**, con el fin de identificar los parámetros que podían evaluarse durante la verificación experimental. Posteriormente, se encendió el monitor y se configuró en modo de monitorización para permitir la adquisición de las señales fisiológicas simuladas.
 
-Después, se conectó el sensor de SpO₂ del monitor al simulador OxSim OX-1. Se verificó que la pinza de pulsioximetría estuviera correctamente ubicada sobre el simulador y que el monitor detectara la señal. Una vez estabilizada la lectura, se realizaron diferentes pruebas de simulación: bradicardia, saturación baja, baja perfusión y taquicardia.
+Después, se conectó la pinza de pulsioximetría, correspondiente al sensor de SpO₂, al simulador Pronk OxSim OX-1. La pinza se ubicó sobre el dedo óptico del simulador, verificando que el emisor y el receptor del sensor quedaran correctamente alineados. Luego, se esperó a que el monitor detectara la señal, estabilizara los valores de SpO₂ y frecuencia de pulso, y mostrara la onda fotopletismográfica en pantalla.
 
-En cada prueba se registraron los valores simulados por el OxSim OX-1 y los valores mostrados por el uMEC 100. Con estos datos se calcularon el error absoluto y el error porcentual para SpO₂ y frecuencia de pulso. Además, se observó la forma de onda fotopletismográfica mostrada en pantalla y se verificó si las alarmas visuales o sonoras se activaban de acuerdo con los límites configurados.
+Una vez estabilizada la lectura, se realizaron diferentes pruebas de simulación: bradicardia, saturación baja, saturación alta, baja perfusión y taquicardia. En cada prueba se registraron los valores simulados por el OxSim OX-1, los valores mostrados por el monitor, el tiempo de respuesta de las alarmas, la activación visual o sonora y la forma de onda fotopletismográfica observada.
+
+Para evaluar el comportamiento del monitor, se calcularon el error absoluto y el error porcentual para cada variable medida. Estos cálculos permitieron comparar los valores de referencia generados por el simulador con los valores mostrados por el monitor. Además, se analizaron las condiciones en las que se activaron las alarmas y la estabilidad de la señal fotopletismográfica.
+
+---
+
+## Fórmulas utilizadas
+
+Para cada variable evaluada se calcularon el error absoluto y el error porcentual.
+
+```text
+Error absoluto = |Valor medido - Valor simulado|
+```
+
+```text
+Error porcentual = (Error absoluto / Valor simulado) × 100
+```
 
 ---
 
 ## Resultados generales
 
-| Prueba                      | SpO₂ simulada | SpO₂ medida | FC simulada | FC medida | Alarma esperada                                              | Alarma observada |
-| --------------------------- | ------------: | ----------: | ----------: | --------: | ------------------------------------------------------------ | ---------------- |
-| Bradicardia                 |          95 % |       ___ % |      40 bpm |   ___ bpm | FC baja, si está configurada                                 | Sí / No          |
-| SpO₂ baja                   |          85 % |       ___ % |      80 bpm |   ___ bpm | SpO₂ baja                                                    | Sí / No          |
-| SpO₂ alta en baja perfusión |          99 % |       ___ % |      80 bpm |   ___ bpm | SpO₂ alta                                                    | Sí / No          |
-| Taquicardia                 |          98 % |       ___ % |     140 bpm |   ___ bpm | FC alta, si el límite está configurado por debajo de 140 bpm | Sí / No          |
+| Prueba        | SpO₂ simulada | SpO₂ medida | Error SpO₂ | FC simulada | FC medida | Error FC | Alarma esperada                          | Alarma observada |
+| ------------- | ------------: | ----------: | ---------: | ----------: | --------: | -------: | ---------------------------------------- | ---------------- |
+| Bradicardia   |          95 % |        96 % |        1 % |      40 bpm |    40 bpm |    0 bpm | FC baja                                  | Sí               |
+| SpO₂ baja     |          85 % |        84 % |        1 % |      60 bpm |    60 bpm |    0 bpm | SpO₂ baja                                | Sí               |
+| SpO₂ alta     |          99 % |        99 % |        0 % |      80 bpm |    80 bpm |    0 bpm | SpO₂ alta                                | Sí               |
+| Low Perfusion |          99 % |        98 % |        1 % |      80 bpm |    80 bpm |    0 bpm | No necesariamente; se evalúa estabilidad | No               |
+| Taquicardia   |          95 % |        95 % |        0 % |     150 bpm |   149 bpm |    1 bpm | FC alta                                  | Sí               |
 
 ---
 
-## Análisis
+## Análisis de resultados
 
-Los resultados obtenidos permiten comparar los valores simulados por el OxSim OX-1 con los valores mostrados por el monitor uMEC 100. Esta comparación es importante porque permite verificar si el monitor se encuentra dentro de los rangos de exactitud esperados para SpO₂ y frecuencia de pulso.
+Los resultados obtenidos permiten comparar los valores simulados por el OxSim OX-1 con los valores mostrados por el monitor. Esta comparación es importante porque permite verificar si el equipo responde adecuadamente ante condiciones fisiológicas y patológicas simuladas, y si las alarmas se activan cuando las variables superan los límites configurados.
 
-En la prueba de SpO₂ baja, se esperaba la activación de la alarma debido a que el valor simulado de 85 % estaba por debajo del límite inferior configurado de 90 %. En la prueba de SpO₂ alta, se esperaba la activación de la alarma porque el valor simulado de 99 % superaba el límite superior configurado de 97 %. En la prueba de taquicardia, la activación de la alarma dependía del límite superior de frecuencia cardiaca configurado en el monitor.
+En la prueba de bradicardia, el simulador generó una frecuencia de pulso de 40 bpm y una SpO₂ de 95 %. El monitor mostró una frecuencia de 40 bpm y una SpO₂ de 96 %, por lo que la frecuencia no presentó error y la SpO₂ tuvo un error absoluto de 1 %. Este resultado indica que el monitor mantuvo una lectura estable durante la simulación de frecuencia cardíaca baja. Además, la onda fotopletismográfica se observó con los pulsos más separados entre sí, lo cual es coherente con una frecuencia cardíaca disminuida.
 
-En el modo de baja perfusión, la onda fotopletismográfica podía presentar menor amplitud o mayor inestabilidad debido a que el índice de perfusión simulado era menor. Esto representa una condición más exigente para el monitor y permite observar su capacidad para detectar señales de baja amplitud.
+En la prueba de SpO₂ baja, se configuró el límite inferior de alarma en 90 % y se simuló una saturación de 85 %. El monitor mostró una SpO₂ de 84 %, por lo que el valor estuvo por debajo del límite configurado. Debido a esto, se activó la alarma sonora y visual después de 5 segundos. El error absoluto fue de 1 % y el error porcentual fue de 1,18 %, lo que indica que la medición fue cercana al valor simulado.
+
+En la prueba de SpO₂ alta, se configuró el límite superior de alarma en 97 % y se simuló una SpO₂ de 99 %. El monitor también mostró 99 %, por lo que no se presentó error en esta variable. Como el valor medido superó el límite superior configurado, se activó la alarma correspondiente. Esto evidencia que el monitor detectó correctamente una condición fuera del rango establecido.
+
+En el modo Low Perfusion, se simuló una condición de baja perfusión con SpO₂ de 99 %, frecuencia de 80 bpm e índice de perfusión aproximado de 0,2. El monitor mantuvo la lectura de SpO₂ con un valor cercano al simulado, mostrando 98 %. Sin embargo, la onda fotopletismográfica presentó menor amplitud y menor estabilidad en comparación con las pruebas de perfusión normal. Esto ocurre porque la señal pulsátil es más débil y el monitor debe interpretar una señal de menor calidad.
+
+En la prueba de taquicardia, se simuló una frecuencia cardíaca de 150 bpm con SpO₂ de 95 %. El monitor registró una frecuencia de 149 bpm y una SpO₂ de 95 %. El error absoluto de frecuencia fue de 1 bpm y el error porcentual fue de 0,67 %. Como el límite superior de frecuencia cardíaca se configuró en 120 bpm, el monitor activó la alarma de frecuencia elevada. Además, la onda fotopletismográfica se observó con pulsos más cercanos entre sí, debido al aumento de la frecuencia cardíaca.
+
+En general, los errores calculados fueron bajos. Esto indica que el monitor mostró valores cercanos a los simulados por el OxSim OX-1 y respondió adecuadamente ante las condiciones de alarma configuradas. También se evidenció que la calidad de la señal influye en la estabilidad de la medición, especialmente durante la prueba de baja perfusión.
+
+---
+
+## Relación entre la onda fotopletismográfica y la frecuencia cardíaca
+
+La onda fotopletismográfica representa los cambios pulsátiles detectados por el sensor de SpO₂. Cuando la frecuencia cardíaca es baja, como en la prueba de bradicardia, los pulsos se observan más separados porque el intervalo entre cada latido es mayor.
+
+En cambio, durante la taquicardia, los pulsos aparecen más cercanos entre sí porque el corazón late con mayor frecuencia y el intervalo entre pulsos disminuye. Por esta razón, la forma de onda permite relacionar visualmente la frecuencia de pulso con el patrón observado en pantalla.
+
+La amplitud de la onda también se relaciona con la calidad de la señal. En condiciones de buena perfusión, la onda suele observarse más definida y estable. En baja perfusión, la amplitud puede disminuir y la señal puede volverse más inestable, lo cual puede afectar la confiabilidad de la lectura de SpO₂.
+
+---
+
 
 ## Preguntas para la discusión
 
@@ -435,13 +453,15 @@ En el modo Low Perfusion del OxSim OX-1 se simula precisamente una condición de
 
 ## Conclusión
 
-La práctica permitió verificar el comportamiento del monitor **Mindray uMEC 100** frente a diferentes condiciones simuladas mediante el **Pronk OxSim OX-1**. Se evaluaron escenarios de bradicardia, SpO₂ baja, SpO₂ alta en baja perfusión y taquicardia, observando la respuesta del monitor, la activación de alarmas y la forma de onda fotopletismográfica.
+La práctica permitió verificar el comportamiento del monitor de signos vitales frente a diferentes condiciones simuladas mediante el Pronk OxSim OX-1. Se evaluaron escenarios de bradicardia, SpO₂ baja, SpO₂ alta, baja perfusión y taquicardia, observando la respuesta del monitor, la activación de alarmas y la forma de onda fotopletismográfica.
 
-A partir de los valores simulados y los valores medidos por el uMEC 100, se calcularon los errores absoluto y porcentual para SpO₂ y frecuencia de pulso. Esto permitió analizar la precisión del monitor y verificar si sus lecturas se encontraban dentro de los rangos de tolerancia esperados.
+Los errores obtenidos fueron bajos en todas las pruebas. La SpO₂ presentó diferencias entre 0 % y 1 %, mientras que la frecuencia de pulso presentó errores de 0 bpm en la mayoría de las pruebas y de 1 bpm en la prueba de taquicardia. Esto indica que el monitor mostró lecturas cercanas a los valores simulados por el OxSim OX-1.
 
-El uMEC 100 mostró ser útil para la monitorización continua y para la detección de condiciones fisiológicas fuera de los límites configurados. Sin embargo, la confiabilidad de la medición depende de la calidad de la señal, la correcta colocación del sensor y la perfusión periférica simulada. En condiciones de baja perfusión, la onda fotopletismográfica puede disminuir su amplitud o volverse menos estable, lo que puede afectar la lectura de SpO₂.
+También se comprobó que las alarmas se activaron correctamente cuando los valores simulados superaron los límites configurados. La alarma de SpO₂ baja se activó cuando la saturación estuvo por debajo de 90 %, la alarma de SpO₂ alta se activó cuando el valor superó 97 % y la alarma de frecuencia cardíaca elevada se activó durante la simulación de taquicardia.
 
-El OxSim OX-1 es una herramienta útil para comprobar el canal de oximetría de pulso y la respuesta de alarmas del monitor, pero tiene limitaciones porque no reproduce completamente la complejidad de un paciente real. Su simulación se centra en SpO₂, frecuencia de pulso e índice de perfusión, por lo que no permite evaluar de forma completa todos los parámetros cardiovasculares o hemodinámicos de un paciente.
+Sin embargo, se observó que la confiabilidad de la medición depende de la calidad de la señal. En condiciones de baja perfusión, la onda fotopletismográfica puede disminuir su amplitud y volverse menos estable, lo cual puede afectar la lectura de SpO₂. Por esta razón, el personal biomédico y clínico no debe interpretar únicamente el valor numérico, sino también la calidad de la onda y las condiciones de medición.
+
+El OxSim OX-1 es una herramienta útil para verificar el canal de oximetría de pulso y la respuesta de alarmas del monitor. No obstante, presenta limitaciones porque simula condiciones controladas y no reproduce por completo la complejidad de un paciente real, donde pueden intervenir factores como movimiento, baja temperatura periférica, mala colocación del sensor, interferencia lumínica o alteraciones fisiológicas reales.
 
 ### Referencias
 
