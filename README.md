@@ -249,7 +249,10 @@ Como el valor simulado de SpO₂ fue de 99 % y el límite superior configurado f
 
 El error absoluto y porcentual para SpO₂ fueron de 0 %, ya que el valor medido coincidió con el valor simulado. La frecuencia de pulso también coincidió con el valor simulado, por lo que no presentó error.
 
-![Uploading image.png…]()
+<div align="center">
+  <img width="1600" height="900" alt="Verificación de alarma por SpO2 alta en monitor uMEC 100" src="https://github.com/user-attachments/assets/832d3688-2f5c-4628-b41d-d164907f5aeb" />
+  <p><em>Fig. 3. Verificación de alarma por SpO₂ alta. (Autoría propia)</em></p>
+</div>
 
 
 ---
