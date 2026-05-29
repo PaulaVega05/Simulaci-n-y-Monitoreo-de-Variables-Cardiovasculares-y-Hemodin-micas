@@ -162,7 +162,7 @@ Durante la simulación de bradicardia, la onda fotopletismográfica se observó 
 
 <img width="1600" height="900" alt="Simulación de bradicardia en monitor uMEC 100" src="https://github.com/user-attachments/assets/5fc646db-62cf-4660-91a3-17a64cb9296b" />
 
-<p align="center"><em>Fig. 1. Registro de la onda fotopletismográfica durante la simulación de bradicardia, con frecuencia de pulso de 40 bpm y SpO₂ de 95 %. (Autoría propia)</em></p>
+<p align="center"><em>Fig. 1. Registro de la onda fotopletismográfica durante la simulación de bradicardia. (Autoría propia)</em></p>
 
 
 ### Interpretación
@@ -249,9 +249,8 @@ Como el valor simulado de SpO₂ fue de 99 % y el límite superior configurado f
 
 El error absoluto y porcentual para SpO₂ fueron de 0 %, ya que el valor medido coincidió con el valor simulado. La frecuencia de pulso también coincidió con el valor simulado, por lo que no presentó error.
 
-```markdown
-![Alarma por SpO2 alta](imagenes/alarma_spo2_alta.jpg)
-```
+![Uploading image.png…]()
+
 
 ---
 
