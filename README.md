@@ -11,6 +11,11 @@ El Pronk OxSim OX-1 es un simulador óptico de oximetría de pulso, su función 
 
 ### a. ¿Cómo colocar al uMEC 100 en modo “monitor”?
 
+<div align="center">
+  <img width="900" height="1600" alt="Simulador Pronk OxSim OX-1" src="https://github.com/user-attachments/assets/949ea0f8-925e-4a44-abfb-8d5314e4d046" />
+  <p><em>Fig. 1. Simulador Pronk OxSim OX-1 utilizado para generar señales de SpO₂, frecuencia de pulso y baja perfusión durante la práctica. (Autoría propia)</em></p>
+</div>
+
 En el monitor Mindray uMEC 100, el modo Monitor corresponde al filtro de ECG utilizado para condiciones normales de monitorización clínica; este filtro permite visualizar una señal ECG estable durante la vigilancia continua del paciente.
 
 El procedimiento general para colocarlo en modo monitor es:
@@ -162,7 +167,7 @@ Durante la simulación de bradicardia, la onda fotopletismográfica se observó 
 
 <img width="1600" height="900" alt="Simulación de bradicardia en monitor uMEC 100" src="https://github.com/user-attachments/assets/5fc646db-62cf-4660-91a3-17a64cb9296b" />
 
-<p align="center"><em>Fig. 1. Registro de la onda fotopletismográfica durante la simulación de bradicardia. (Autoría propia)</em></p>
+<p align="center"><em>Fig. 2. Registro de la onda fotopletismográfica durante la simulación de bradicardia. (Autoría propia)</em></p>
 
 
 ### Interpretación
@@ -210,7 +215,7 @@ El error absoluto para SpO₂ fue de 1 % y el error porcentual fue de 1,18 %. Pa
 
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6c8f0aa5-9f07-4b8f-a6f4-5e25e5a25ba5" />
 
-<p align="center"><em>Fig. 1. Simulación de señal ECG con bradicardia. (Autoría propia)</em></p>
+<p align="center"><em>Fig. 3. Simulación de señal ECG con bradicardia. (Autoría propia)</em></p>
 
 ---
 
@@ -251,7 +256,7 @@ El error absoluto y porcentual para SpO₂ fueron de 0 %, ya que el valor medido
 
 <div align="center">
   <img width="1600" height="900" alt="Verificación de alarma por SpO2 alta en monitor uMEC 100" src="https://github.com/user-attachments/assets/832d3688-2f5c-4628-b41d-d164907f5aeb" />
-  <p><em>Fig. 3. Verificación de alarma por SpO₂ alta. (Autoría propia)</em></p>
+  <p><em>Fig. 4. Verificación de alarma por SpO₂ alta. (Autoría propia)</em></p>
 </div>
 
 
@@ -292,10 +297,6 @@ En el modo **Low Perfusion**, el índice de perfusión disminuye aproximadamente
 
 Esta condición permite evaluar si el monitor mantiene una lectura confiable de SpO₂ y frecuencia de pulso cuando la señal recibida es débil. En esta prueba, el monitor mantuvo una lectura cercana al valor simulado, aunque la onda presentó menor amplitud. Esto indica que el equipo logró interpretar la señal, pero con una condición de medición más exigente.
 
-```markdown
-![Onda fotopletismográfica - baja perfusión](imagenes/onda_low_perfusion.jpg)
-```
-
 ---
 
 # Prueba 5. Simulación de taquicardia
@@ -330,9 +331,10 @@ Sí. La alarma de frecuencia cardíaca elevada se activó porque el valor simula
 
 Durante la simulación de taquicardia, la onda fotopletismográfica se observó con pulsos más cercanos entre sí, debido al aumento de la frecuencia cardíaca. Esto ocurre porque el intervalo entre cada pulso disminuye cuando la frecuencia de pulso aumenta.
 
-```markdown
-![Onda fotopletismográfica - taquicardia](imagenes/onda_taquicardia.jpg)
-```
+<div align="center">
+  <img width="1600" height="900" alt="Simulación de taquicardia en monitor uMEC 100" src="https://github.com/user-attachments/assets/887763d8-712a-45e0-9da6-4f70851e5b5a" />
+  <p><em>Fig. 5. Registro de taquicardia simulada en el monitor uMEC 100. (Autoría propia)</em></p>
+</div>
 
 ### Interpretación
 
