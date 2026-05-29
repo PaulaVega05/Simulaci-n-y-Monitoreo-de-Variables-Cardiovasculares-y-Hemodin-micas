@@ -160,8 +160,10 @@ Se registraron los valores mostrados por el D30 y se calcularon los errores abso
 
 Durante la simulación de bradicardia, la onda fotopletismográfica se observó con pulsos más separados entre sí, debido a que la frecuencia de pulso era baja. Esto indica que el intervalo entre cada pulso fue mayor en comparación con una frecuencia cardíaca normal.
 
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/5fc646db-62cf-4660-91a3-17a64cb9296b" />
 
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6c8f0aa5-9f07-4b8f-a6f4-5e25e5a25ba5" /> *Fig. 1. Simulación de señal ECG con bradicardia. (Autoria Propia)*
+
+
 
 
 ### Interpretación
@@ -207,10 +209,9 @@ Como el valor simulado de SpO₂ fue de 85 % y el límite inferior configurado f
 
 El error absoluto para SpO₂ fue de 1 % y el error porcentual fue de 1,18 %. Para la frecuencia de pulso no se presentó error, ya que el valor medido coincidió con el valor simulado.
 
-```markdown
-![Uploading image.png…]()
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6c8f0aa5-9f07-4b8f-a6f4-5e25e5a25ba5" />
 
-```
+<p align="center"><em>Fig. 1. Simulación de señal ECG con bradicardia. (Autoría propia)</em></p>
 
 ---
 
