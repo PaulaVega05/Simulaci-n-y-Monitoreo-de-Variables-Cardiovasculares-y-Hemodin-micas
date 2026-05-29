@@ -13,7 +13,7 @@ El Pronk OxSim OX-1 es un simulador óptico de oximetría de pulso, su función 
 
 <div align="center">
   <img width="900" height="1600" alt="Simulador Pronk OxSim OX-1" src="https://github.com/user-attachments/assets/949ea0f8-925e-4a44-abfb-8d5314e4d046" />
-  <p><em>Fig. 1. Simulador Pronk OxSim OX-1 utilizado para generar señales de SpO₂, frecuencia de pulso y baja perfusión durante la práctica. (Autoría propia)</em></p>
+  <p><em>Fig. 1. Simulador Pronk OxSim OX-1. (Autoría propia)</em></p>
 </div>
 
 En el monitor Mindray uMEC 100, el modo Monitor corresponde al filtro de ECG utilizado para condiciones normales de monitorización clínica; este filtro permite visualizar una señal ECG estable durante la vigilancia continua del paciente.
