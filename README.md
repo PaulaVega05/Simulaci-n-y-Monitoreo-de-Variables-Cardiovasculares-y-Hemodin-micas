@@ -161,7 +161,8 @@ Se registraron los valores mostrados por el D30 y se calcularon los errores abso
 Durante la simulación de bradicardia, la onda fotopletismográfica se observó con pulsos más separados entre sí, debido a que la frecuencia de pulso era baja. Esto indica que el intervalo entre cada pulso fue mayor en comparación con una frecuencia cardíaca normal.
 
 
-[Onda fotopletismográfica - bradicardia](imagenes/onda_bradicardia.jpg)
+![Uploading image.png…]()
+
 
 ### Interpretación
 
