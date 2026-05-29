@@ -109,9 +109,7 @@ Para cada variable evaluada se calcularon el error absoluto y el error porcentua
 
 ### Error absoluto
 
-```text
 Error absoluto = |Valor medido en el uMEC 100 - Valor simulado en el OxSim OX-1|
-```
 
 ### Error porcentual
 
