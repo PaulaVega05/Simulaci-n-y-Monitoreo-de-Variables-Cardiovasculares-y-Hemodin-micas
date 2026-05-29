@@ -161,7 +161,7 @@ Se registraron los valores mostrados por el D30 y se calcularon los errores abso
 Durante la simulación de bradicardia, la onda fotopletismográfica se observó con pulsos más separados entre sí, debido a que la frecuencia de pulso era baja. Esto indica que el intervalo entre cada pulso fue mayor en comparación con una frecuencia cardíaca normal.
 
 
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6c8f0aa5-9f07-4b8f-a6f4-5e25e5a25ba5" />
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6c8f0aa5-9f07-4b8f-a6f4-5e25e5a25ba5" /> *Fig. 1. Simulación de señal ECG con bradicardia. (Autoria Propia)*
 
 
 ### Interpretación
