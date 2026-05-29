@@ -109,7 +109,9 @@ Para cada variable evaluada se calcularon el error absoluto y el error porcentua
 
 ### Error absoluto
 
+```text
 Error absoluto = |Valor medido en el uMEC 100 - Valor simulado en el OxSim OX-1|
+```
 
 ### Error porcentual
 
@@ -270,17 +272,15 @@ En el OxSim OX-1 se seleccionó el modo **Low Perfusion** para evaluar si el mon
 
 ### Pregunta: ¿Mantiene el monitor D30 la lectura de SpO₂?
 
-```text
 Respuesta:
 Sí. El monitor mantuvo la lectura de SpO₂, aunque se observó una ligera variación del valor mostrado. La SpO₂ simulada fue de 99 % y el monitor mostró 98 %, por lo que la lectura se mantuvo cercana al valor esperado.
-```
+
 
 ### Pregunta: ¿La onda fotopletismográfica se distorsiona?
 
-```text
 Respuesta:
 Sí. En el modo Low Perfusion la onda fotopletismográfica se observó con menor amplitud y menor estabilidad en comparación con las pruebas de perfusión normal. Esto ocurre porque el índice de perfusión disminuye aproximadamente a 0,2, lo que representa una señal pulsátil más débil para el sensor de SpO₂.
-```
+
 
 ### Interpretación
 
@@ -319,10 +319,8 @@ Con un valor de SpO₂ de 95 %, se configuró el OxSim OX-1 para simular una taq
 
 ### Pregunta: ¿Se dispara la alarma de frecuencia cardíaca elevada?
 
-```text
-Respuesta:
 Sí. La alarma de frecuencia cardíaca elevada se activó porque el valor simulado fue de 150 bpm y el límite superior configurado en el monitor fue de 120 bpm. Como la frecuencia medida por el D30 fue de 149 bpm, el valor superó el límite establecido y el monitor generó alarma sonora y visual.
-```
+
 
 ### Registro de la onda fotopletismográfica
 
