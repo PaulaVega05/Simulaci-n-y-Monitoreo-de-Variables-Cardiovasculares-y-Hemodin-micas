@@ -482,3 +482,12 @@ La principal enseñanza de este laboratorio es que un monitor de signos vitales 
    https://mindray.sy/wp-content/uploads/2019/09/uMEC-Operator%E2%80%99s-Manual.pdf
 
 4. ISO 80601-2-61:2017. *Medical electrical equipment — Particular requirements for basic safety and essential performance of pulse oximeter equipment*.
+
+5. Pronk Technologies. *OxSim SpO₂ Simulator Operator’s Manual*. Pronk Technologies, 2017.  
+   Referencia usada para identificar los modos de simulación del OxSim OX-1, incluyendo SpO₂, frecuencia de pulso y baja perfusión. :contentReference[oaicite:0]{index=0}
+
+6. Mindray. *uMEC 100/120/150 Patient Monitor Data Sheet*. Mindray, 2023.  
+   Referencia usada para consultar características del monitor uMEC 100, rangos de medición y exactitud de variables como SpO₂ y frecuencia de pulso. :contentReference[oaicite:2]{index=2}
+
+7. MedicalExpo. *SpO₂ simulator OX-1 OxSim — Pronk Technologies*.  
+   Referencia complementaria sobre el uso del OxSim para probar el sistema completo de SpO₂, incluyendo sensor y cable de extensión. :contentReference[oaicite:9]{index=9}
